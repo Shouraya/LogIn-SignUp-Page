@@ -25,6 +25,10 @@ app.use(passport.session());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+//======
+//ROUTES
+//======
 	
 app.get("/", function(req, res){
 	res.render("home");
@@ -35,6 +39,15 @@ app.get("/secret", function(req, res){
 	res.render("secret");
 });
 
+//Auth Routes
+//show signup page
+app.get("/register", function(req, res){
+	res.render("register");
+});
+//handling user sign up
+app.post("/register", function(req, res){
+	res.send("Registered!");
+});
 
 app.listen(3000, function(){
 	console.log("Server started");
